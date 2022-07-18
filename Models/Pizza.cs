@@ -18,6 +18,11 @@ namespace la_mia_pizzeria_static.Models
         public double Price { get; set; }
 
 
+        public Pizza()
+        {
+
+        }
+
         public Pizza(string name, string description, string img, double price)
         {
             Name = name;

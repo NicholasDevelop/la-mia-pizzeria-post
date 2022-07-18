@@ -1,7 +1,7 @@
 ﻿@model Pizza
 
-<div class="container">
-    <form action="@Url.Action("Create", "Pizzas")" method="post">
+<div class="container w-100 d-flex justify-content-center my-5">
+    <form action="@Url.Action("Create", "Pizzas")" method="post" class="w-50">
     @*<form asp-controller="Pizzas" asp-action="Create" method="post">*@
 
         @Html.AntiForgeryToken()
@@ -23,7 +23,7 @@
             <span asp-validation-for="Price" class="text-danger"></span>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <strong>Immagine:</strong>
             <input asp-for="Img" class="d-block w-100" />
             <span asp-validation-for="Img" class="text-danger"></span>

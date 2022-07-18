@@ -23,30 +23,30 @@ using(PizzeriaContext db = new PizzeriaContext())
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <h1>Da Niko - Pizzeria</h1>
-<p>Le Migliori pizze che puoi desiderare</p>
+<p class="mb-5">Le Migliori pizze che puoi desiderare!</p>
 
-<a href="@Url.Action("Create", "Pizzas")"><button>Crea una nuova Pizza</button></a>
+<a href="@Url.Action("Create", "Pizzas")"><button class="btn btn-small btn-info mb-3">Crea una nuova Pizza</button></a>
 
-<h2>Le nostre pizze:</h2>
+<h2 class="mb-3">Le nostre pizze:</h2>
 <table>
     <thead>
         <tr>
-            <th>Tipo di pizza</th>
-            <th>Descrizione</th>
-            <th>Foto</th>
-            <th>Prezzo</th>
-            <th>Visualizza</th>
+            <th class="text-center">Tipo di pizza</th>
+            <th class="text-center">Descrizione</th>
+            <th class="text-center">Foto</th>
+            <th class="text-center">Prezzo</th>
+            <th class="text-center">Visualizza</th>
         </tr>
     </thead>
     <tbody>
         @foreach(Pizza pizza in Model)
         {
             <tr class="list-table">
-                <td class="name-table">@pizza.Name</td>
-                <td class="description-table">@pizza.Description</td>
-                <td class="img-table"><img src="@pizza.Img"/></td>
-                <td class="price-table">@pizza.Price</td>
-                <td><a href="@Url.Action("Detail", "Pizzas", new {@pizza.Id})"><button>Visualizza Pizza</button></a></td>
+                <td class="name-table p-2">@pizza.Name</td>
+                <td class="description-table p-2">@pizza.Description</td>
+                <td class="img-table p-2"><img class="w-100" src="@pizza.Img"/></td>
+                <td class="price-table p-2">@pizza.Price</td>
+                <td><a href="@Url.Action("Detail", "Pizzas", new {@pizza.Id})"><button class="btn btn-small btn-info">Visualizza Pizza</button></a></td>
             </tr>
         }
     </tbody>

@@ -32,33 +32,31 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
 
-        public class GreetingController : Controller
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza pizza)
         {
-            [HttpGet]
-            [ValidateAntiForgeryToken]
-            public IActionResult Create(Pizza pizza)
+            if (!ModelState.IsValid)
             {
-                if (!ModelState.IsValid)
-                {
-                    return View("Create", pizza);
-                }
-
-                using(PizzeriaContext context = new PizzeriaContext())
-                {
-                    context.Pizzas.Add(pizza);
-                    context.SaveChanges();
-                }
-
-                return RedirectToAction("Index");
+                return View("Create", pizza);
             }
 
-
-
-            [HttpGet]
-            public IActionResult Create()
+            using(PizzeriaContext context = new PizzeriaContext())
             {
-                return View("Create");
+                context.Pizzas.Add(pizza);
+                context.SaveChanges();
             }
+
+            return RedirectToAction("Index");
         }
+
+
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View("Create");
+        }
+        
     }
 }

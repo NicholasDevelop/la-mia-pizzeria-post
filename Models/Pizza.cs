@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using la_mia_pizzeria_static.ValidationAttributes;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace la_mia_pizzeria_static.Models
@@ -14,6 +15,7 @@ namespace la_mia_pizzeria_static.Models
         public string Name { get; set; }
 
         [StringLength(250, ErrorMessage = "Il nome non può avere più di 250 caratteri")]
+        [FiveWordsValidationAttribute]
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Il campo è obbligatorio")]
